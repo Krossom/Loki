@@ -14,6 +14,6 @@ def screenshot():
 def clean_up():
     if path.exists(file):
         try:
-            remove(file)
+            remove(file) #TODO
         except:
             pass
